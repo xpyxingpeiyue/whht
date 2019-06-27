@@ -1,0 +1,15 @@
+package com.learn.cloud.pshconsumer;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class PshConsumerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PshConsumerApplication.class, args);
+	}
+
+}

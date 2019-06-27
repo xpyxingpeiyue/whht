@@ -1,0 +1,21 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    # 是否在Eureka注册。没有该配置，则单机版启动会报错。
+    register-with-eureka: false
+    # 是否从Eureka中获取注册信息。没有该配置，则单机版启动会报错。
+    fetch-registry: false
+    # 默认注册地址，注意不能写成default-zone，否则将不生效。
+    # 原因是Eureka有默认的defaultZone配置，端口为8761。
+    # 详情参见：org.springframework.cloud.netflix.eureka.EurekaClientConfigBean类的serviceUrl属性初始化代码块
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+# 开启服务端访问验证 访问注册中心需要用户名和密码
+spring:
+  security:
+    user:
+      name: admin
+      password: admin123

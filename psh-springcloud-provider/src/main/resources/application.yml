@@ -1,0 +1,28 @@
+server:
+  port: 8090
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/whht
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: springcloud-provider-user
+logging:
+  level:
+    root: INFO
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin123@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    #指定状态名称
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${server.port}}
+

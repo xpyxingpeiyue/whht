@@ -1,0 +1,28 @@
+server:
+  port: 9100
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://local.mysql.com:3306/cloud_log?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: maradon
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: springcloud-crawler
+logging:
+  level:
+    root: INFO
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin123@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    #指定状态名称
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${server.port}}
+

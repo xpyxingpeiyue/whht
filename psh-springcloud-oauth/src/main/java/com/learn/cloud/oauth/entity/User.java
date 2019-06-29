@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * 添加JPA注解
@@ -18,12 +18,6 @@ public class User implements UserDetails, Serializable {
     private Long id;
     @Column
     private String username;
-    @Column
-    private String name;
-    @Column
-    private Integer age;
-    @Column
-    private BigDecimal balance;
 
     @Column
     private String password;
@@ -44,30 +38,6 @@ public class User implements UserDetails, Serializable {
         this.username = username;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
     @Override
     public String getPassword() {
         return password;
@@ -77,9 +47,13 @@ public class User implements UserDetails, Serializable {
         this.password = password;
     }
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private List<Role> authorities;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
     @Override
     public boolean isAccountNonExpired() {

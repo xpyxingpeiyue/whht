@@ -27,6 +27,7 @@
         <module>psh-springcloud-eureka-server</module>
         <module>psh-springcloud-consumer-ribbon</module>
         <module>psh-springcloud-crawler</module>
+        <module>psh-springcloud-oauth</module>
     </modules>
     <dependencies>
         <dependency>
@@ -53,6 +54,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.5.15</version>
+        </dependency>
+
     </dependencies>
     <!--定义统一的依赖规则-->
     <dependencyManagement>

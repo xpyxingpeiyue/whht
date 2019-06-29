@@ -1,8 +1,19 @@
 server:
-  port: 9090
+  port: 9010
 spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/oauth
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
   application:
-    name: spring-cloud-user-ribbon
+    name: psh-springcloud-oauth
 logging:
   level:
     root: INFO

@@ -9,7 +9,8 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
     /**
      * LoadBalanced 作用 添加Ribbon负载均衡（客户端负载均衡），
-     * @return
+     * @return 返回值
+     * @author xingp
      */
     @Bean
     @LoadBalanced

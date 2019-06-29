@@ -20,7 +20,7 @@ logging:
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin123@localhost:8761/eureka/
+      defaultZone: http://admin:admin123@localhost:9761/eureka/
   instance:
     prefer-ip-address: true
     #指定状态名称
